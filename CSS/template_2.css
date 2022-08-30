@@ -21,6 +21,8 @@ a {
 
 html {
   scroll-behavior: smooth;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 body {
   font-family: "Open Sans", sans-serif;
@@ -563,6 +565,7 @@ header .container nav .form i {
   background-color: var(--transparent-color);
   padding: 30px;
   color: white;
+  max-width: 80%;
 }
 .video .videoandtext .text h4 {
   font-size: 28px;
