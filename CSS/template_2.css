@@ -170,6 +170,7 @@ header .container nav ul li a.active::after {
   position: absolute;
   height: 1px;
   width: 100%;
+  left: 0;
   background-color: var(--main-color);
   bottom: -2px;
   z-index: 2;
