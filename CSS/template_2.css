@@ -95,6 +95,7 @@ header .container nav {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  position: relative;
 }
 
 header .container nav i {
@@ -102,30 +103,13 @@ header .container nav i {
   font-size: 24px;
 }
 
-@media (min-width: 767px) {
-  header .container nav i {
-    display: none;
-  }
-}
-
 header .container nav ul {
-  display: flex;
+  display: none;
 }
 
-@media (max-width: 767px) {
+@media (min-width: 767px) {
   header .container nav ul {
     display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    width: 100%;
-    transform: translateX(-50%);
-    text-align: center;
-    margin-top: 10px;
-    letter-spacing: 1.5px;
-
-    padding-top: 15px;
   }
   header .container nav ul li a:hover {
     border-bottom: 4px solid var(--main-color);
@@ -133,31 +117,42 @@ header .container nav ul {
   header .container nav ul li a::after {
     display: none;
   }
+}
 
-  header .container nav .toogle-menu:hover + ul {
-    display: block;
-    background: rgb(0 0 0 / 80%);
-  }
-  header .container nav .toogle-menu:hover + ul::before {
-    content: "";
-    width: 100%;
-    height: 40px;
-    position: absolute;
-    left: 0;
-    background-color: transparent;
-    top: -50px;
-  }
-  header .container nav ul li a {
-    padding: 6px;
-  }
+header .container nav .toogle-menu:hover ul {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: calc(100% - 10px);
+  left: 0;
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+  letter-spacing: 1.5px;
+  padding-top: 15px;
+  background: rgb(0 0 0 / 80%);
+  z-index: 999;
+}
+/* header .container nav .toogle-menu:hover + ul::before {
+  content: "";
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  top: -10px;
+} */
+header .container nav ul li a {
+  padding: 6px;
 }
 header .container nav ul li a {
   display: block;
-  padding: 19px 16px;
+  padding: 15px 8px;
   text-decoration: none;
   color: white;
   height: 100%;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 600;
   position: relative;
 }
@@ -168,16 +163,15 @@ header .container nav ul li a:hover {
   font-size: 16px;
 }
 
-header .container nav ul li a:hover::after,
+header .container nav ul li:not(:last-child) a:hover::after,
 header .container nav ul li a.active::after {
   content: "";
   color: var(--main-color);
   position: absolute;
-  height: 3px;
+  height: 1px;
   width: 100%;
   background-color: var(--main-color);
-  bottom: -17px;
-  left: 0;
+  bottom: -2px;
   z-index: 2;
 }
 header .container nav .form {
@@ -558,14 +552,14 @@ header .container nav .form i {
 .video .videoandtext .text {
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateY(-50%);
   text-align: center;
   line-height: 3;
   background-color: var(--transparent-color);
   padding: 30px;
   color: white;
-  max-width: 80%;
+  width: 100%;
+  max-width: 100%;
 }
 .video .videoandtext .text h4 {
   font-size: 28px;
